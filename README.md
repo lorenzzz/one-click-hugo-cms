@@ -1,46 +1,35 @@
-# Hugo template for Netlify CMS with Netlify Identity
+# nuxtify-cms
 
-This is a small business template built with [Victor Hugo](https://github.com/netlify/victor-hugo) and [Netlify CMS](https://github.com/netlify/netlify-cms), designed and developed by [Darin Dimitroff](http://www.darindimitroff.com/), [spacefarm.digital](https://www.spacefarm.digital).
+> Nuxt.js + Netlify CMS project
 
-## Getting started
+## Build Setup
 
-Use our deploy button to get your own copy of the repository. 
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/one-click-hugo-cms&stack=cms)
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-This will setup everything needed for running the CMS:
+# build for production and launch server
+$ npm run build
+$ npm start
 
-* A new repository in your GitHub account with the code
-* Full Continuous Deployment to Netlify's global CDN network
-* Control users and access with Netlify Identity
-* Manage content with Netlify CMS
-
-Once the initial build finishes, you can invite yourself as a user. Go to the Identity tab in your new site, click "Invite" and send yourself an invite.
-
-Now you're all set, and you can start editing content!
-
-## Local Development
-
-Clone this repository, and run `yarn` or `npm install` from the new folder to install all required dependencies.
-
-Then start the development server with `yarn start` or `npm start`.
-
-## Layouts
-
-The template is based on small, content-agnostic partials that can be mixed and matched. The pre-built pages showcase just a few of the possible combinations. Refer to the `site/layouts/partials` folder for all available partials.
-
-Use Hugo’s `dict` functionality to feed content into partials and avoid repeating yourself and creating discrepancies.
-
-## CSS
-
-The template uses a custom fork of Tachyons and PostCSS with cssnext and cssnano. To customize the template for your brand, refer to `src/css/imports/_variables.css` where most of the important global variables like colors and spacing are stored.
-
-## SVG
-
-All SVG icons stored in `site/static/img/icons` are automatically optimized with SVGO (gulp-svgmin) and concatenated into a single SVG sprite stored as a a partial called `svg.html`. Make sure you use consistent icons in terms of viewport and art direction for optimal results. Refer to an SVG via the `<use>` tag like so:
-
+# generate static project
+$ npm run generate
 ```
-<svg width="16px" height="16px" class="db">
-  <use xlink:href="#SVG-ID"></use>
-</svg>
-```
+
+For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+## Edit content
+
+Access `yourwebsite.com/admin`, e.g. `localhost:3000/admin`.
+
+## Manage dynamic routes
+
+When you use Netlify CMS' `folder` type, you actually create dynamic routes. For example, when creating a blog,
+you render different content files with the same template. And for the blog to know which content to render,
+it looks at the url and gets the specific content file. That's a dynamic route.
+
+So If you create a `folder` type with Netlify CMS, add the folder as glob to the `dynamicRoutes` variable
+in the `nuxt.config.js`.
